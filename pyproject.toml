@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "claude-link"
+version = "0.1.0"
+description = "MCP server to control Claude Code agents via tmux"
+authors = [{ name = "sjm" }]
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+keywords = ["MCP", "Claude", "tmux", "agents"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: POSIX :: Linux",
+  "Operating System :: MacOS",
+]
+
+[project.scripts]
+claude-link = "claude_link.__main__:main"
+claude-link-call = "claude_link.call:main"
+
+[tool.setuptools]
+packages = ["claude_link"]
+include-package-data = true
+package-dir = { "claude_link" = "." }

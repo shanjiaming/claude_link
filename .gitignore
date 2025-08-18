@@ -1,0 +1,32 @@
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Build & packaging
+build/
+dist/
+*.egg-info/
+claude_link.egg-info/
+
+# Virtual environments
+.venv/
+
+# Test & tooling caches
+.pytest_cache/
+.mypy_cache/
+.coverage
+.coverage.*
+htmlcov/
+.cache/
+
+# Editors/OS
+.vscode/
+.cursor/
+.claude/
+.idea/
+.DS_Store
+
+# Misc
+pip-wheel-metadata/
+.ruff_cache/

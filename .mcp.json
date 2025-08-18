@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "claude-link": {
+      "command": "claude-link"
+    }
+  }
+}
