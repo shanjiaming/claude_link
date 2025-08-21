@@ -48,6 +48,11 @@ def list_panes_all() -> List[Tuple[str, str, str]]:
     return panes
 
 
+def get_current_command(pane_id: str) -> str:
+    out = _run(["display", "-p", "#{pane_current_command}", "-t", pane_id])
+    return out.strip()
+
+
 def history_limit() -> int:
     try:
         out = _run(["show", "-gv", "history-limit"])
@@ -100,6 +105,34 @@ def paste_buffer(name: str, target_pane: str, delete: bool = True) -> None:
 
 def send_enter(pane_id: str) -> None:
     _run(["send-keys", "-t", pane_id, "Enter"]) 
+
+
+def send_ctrl_c(pane_id: str) -> None:
+    _run(["send-keys", "-t", pane_id, "C-c"]) 
+
+
+def send_keys(pane_id: str, keys: List[str]) -> None:
+    """Send one or more tmux key names to a pane.
+
+    Examples of key names:
+    - "Enter", "C-m" (Enter)
+    - "C-c", "C-u"
+    - "Down", "Up", "Left", "Right"
+    - "BSpace" (Backspace), "DC" (Delete)
+
+    Keys are passed through to tmux without modification.
+    """
+    if not isinstance(keys, list) or not keys:
+        return
+    _run(["send-keys", "-t", pane_id, *keys])
+
+
+def respawn_pane(pane_id: str, command: str, kill_before: bool = True) -> None:
+    args = ["respawn-pane"]
+    if kill_before:
+        args.append("-k")
+    args.extend(["-t", pane_id, command])
+    _run(args)
 
 
 def kill_pane(pane_id: str, force: bool = False) -> None:

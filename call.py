@@ -193,7 +193,7 @@ def main():
         epilog="""
 示例用法:
   python -m claude_link.call --server "python -m claude_link" --method tools/list
-  python -m claude_link.call --server "claude-link" --method inject_input_to --params '{"target_id":"%5","text":"hi"}'
+  python -m claude_link.call --server "claude-link" --method inject_text --params '{"target_id":"%5","text":"hi"}'
         """,
         formatter_class=argparse.RawDescriptionHelpFormatter
     )
