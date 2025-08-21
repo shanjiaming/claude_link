@@ -1,6 +1,8 @@
 # Claude Link
 
-B站 项目效果演示：https://www.bilibili.com/video/BV1aiYUzZE9P/
+![Claude Link](assets/logo.png)
+
+B站 项目效果演示：[点此观看](https://www.bilibili.com/video/BV1aiYUzZE9P/)
 
 通过此MCP，Claude Code 现在获得“元修改”能力：**Claude Code 可以调用它自己，并使用（再）启动出来的 Claude Code**。
 
